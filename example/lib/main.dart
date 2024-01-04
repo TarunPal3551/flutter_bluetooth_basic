@@ -79,7 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onConnect() async {
     if (_device != null && _device.address != null) {
-      await bluetoothManager.connect(_device);
+      await bluetoothManager.connect({
+        "address": _device.address,
+      });
     } else {
       setState(() {
         tips = 'please select device';
